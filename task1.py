@@ -1,12 +1,13 @@
 class Animal():
-    def __init__ (self, name, age, breed, color):
+    def __init__(self, name: str, age: int, breed: str, color: str) -> None:
         self.name = name
         self.age = age
         self.breed = breed
         self.color = color
 
     def __str__(self) -> str:
-            return f'{self.name} {self.age} {self.breed} {self.color}'
+        return f'{self.name} {self.age} {self.breed} {self.color}'
+
 
 class Dog(Animal):
     def __init__(self,
@@ -20,7 +21,6 @@ class Dog(Animal):
         self.commnd = command
 
 
-
 class Bird(Animal):
     def __init__(self,
                  name: str,
@@ -28,12 +28,13 @@ class Bird(Animal):
                  breed: str,
                  color: str,
                  wing_size: float):
-        super().__init__(name,age,breed,color)
+        super().__init__(name, age, breed, color)
         self.wing_size = wing_size
-        
+
     def __str__(self) -> str:
         return f'{self.name} {self.age}'
-        
+
+
 class Horse(Animal):
     def __init__(self,
                  name: str,
@@ -41,7 +42,7 @@ class Horse(Animal):
                  breed: str,
                  color: str,
                  type: str):
-        super().__init__(name,age,breed,color)
+        super().__init__(name, age, breed, color)
         self.type = type
 
 
@@ -50,16 +51,19 @@ class Farm():
         pass
 
     def create_animal():
-        animal_choice = int(input('Выберите номер животного\n1 - Dog\n2 - Bird\n3 - Horse\n: '))
+        animal_choice = int(
+            input('Выберите номер животного\n1 - Dog\n2 - Bird\n3 - Horse\n: '))
         if animal_choice == 1:
-            animal = Dog('Бобик', 3, "спаниель", "черный", 'умеет подавать голос')
+            animal = Dog('Бобик', 3, "спаниель",
+                         "черный", 'умеет подавать голос')
         if animal_choice == 2:
             animal = Bird('Кеша', 35, "попугай", "желтный", 3.5)
         if animal_choice == 3:
             animal = Horse('Ракета', 10, "мустанг", "белый", "скачки")
-        if animal_choice <= 0 or animal_choice > 3: 
+        if animal_choice <= 0 or animal_choice > 3:
             print("нет такого животного")
         return animal
+
 
 if __name__ == "__main__":
     a1 = Farm.create_animal()
