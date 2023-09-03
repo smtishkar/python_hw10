@@ -45,24 +45,26 @@ def portfolio_revenue_calculation() -> int:
     return result
 
 
-list_equites = []
-initial_prices = {"AAPL": 150.25, "GOOGL": 2500.75, "MSFT": 300.50}
-current_prices = {"AAPL": 200.25, "GOOGL": 2750.75, "MSFT": 350.50}
+if __name__ == '__main__':
 
-e1 = EquityBasket('AAPL', 30)
-e2 = EquityBasket('GOOGL', 5)
-e3 = EquityBasket('MSFT', 8)
+    list_equites = []
+    initial_prices = {"AAPL": 150.25, "GOOGL": 2500.75, "MSFT": 300.50}
+    current_prices = {"AAPL": 200.25, "GOOGL": 2750.75, "MSFT": 350.50}
 
-list_equites.append(e1)
-list_equites.append(e2)
-list_equites.append(e3)
+    e1 = EquityBasket('AAPL', 30)
+    e2 = EquityBasket('GOOGL', 5)
+    e3 = EquityBasket('MSFT', 8)
 
-for i in range(len(list_equites)):
-    list_equites[i].equity_price_and_sum_set(initial_prices)
-    list_equites[i].equity_price_and_sum_set(current_prices)
-    list_equites[i].growth_in_money(initial_prices, current_prices)
+    list_equites.append(e1)
+    list_equites.append(e2)
+    list_equites.append(e3)
+
+    for i in range(len(list_equites)):
+        list_equites[i].equity_price_and_sum_set(initial_prices)
+        list_equites[i].equity_price_and_sum_set(current_prices)
+        list_equites[i].growth_in_money(initial_prices, current_prices)
 
 
-print(e1, e2, e3, sep="\n")
-print(f'максимальный прирост - {max_growth_find()}')
-print(f'Стоимость портфеля - {portfolio_revenue_calculation()}')
+    print(e1, e2, e3, sep="\n")
+    print(f'максимальный прирост - {max_growth_find()}')
+    print(f'Стоимость портфеля - {portfolio_revenue_calculation()}')
